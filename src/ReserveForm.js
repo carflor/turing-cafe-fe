@@ -40,6 +40,7 @@ class ReserveForm extends Component {
         <label className='form-label' htmlFor='date'>Date:</label>
         <input 
           type='date' 
+          placeholder='date here'
           onChange={(e) => this.setState({ date: e.target.value })}
           className='submit-date'>  
         </input>
