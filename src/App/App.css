@@ -17,3 +17,26 @@
   font-family: 'Pacifico', cursive;
   font-size: 50px;
 }
+
+.reservation-card {
+  width: 30vw;
+  height: 35vh;
+  border: 1px solid green;
+  background-color: white;
+  margin: 1vh;
+}
+
+.resy-container {
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.reservation-date,
+.reservation-time,
+.reservation-party-size,
+.reservation-name {
+  border-bottom: 1px solid green;
+}
