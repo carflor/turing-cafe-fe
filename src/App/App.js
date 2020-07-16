@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Reservations from '../Reservations'
+import ReserveForm from '../ReserveForm'
 import { getReservations } from '../apiCalls'
 
 class App extends Component {
@@ -8,6 +9,8 @@ class App extends Component {
     super();
     this.state = {
       reservations: null,
+      copy: [],
+      handleSubmit: this.handleSubmit,
     }
   }
 
@@ -19,6 +22,18 @@ class App extends Component {
     return <h2>Loading...</h2>
   }
 
+  handleSubmit = (e, newReservation) => {
+    e.preventDefault()
+    const allReservations = [...this.state.reservations, newReservation]
+    this.setState({ 
+      reservations: allReservations,
+      name: '',
+      time: null,
+      date: null,
+      partySize: null,
+    })
+  }
+
   componentDidMount() {
     getReservations()
       .then(response => {
@@ -28,13 +43,14 @@ class App extends Component {
   }
 
   render() {
-    const { reservations } = this.state
+    const { reservations, handleSubmit } = this.state
     if (reservations) {
       return (
         <div className="App">
           <h1 className='app-title'>Turing Cafe Reservations</h1>
-          <div className='resy-form'>
-          </div>
+          <ReserveForm 
+            handleSubmit={handleSubmit}
+          />
           <div className='resy-container'>
             { this.displayReservations() }
           </div>

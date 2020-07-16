@@ -34,9 +34,27 @@
   overflow: scroll;
 }
 
+.resy-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+  width: 36vw;
+}
+
 .reservation-date,
 .reservation-time,
 .reservation-party-size,
 .reservation-name {
   border-bottom: 1px solid green;
+  padding: 1vh;
+}
+
+.submit-btn {
+  background-color: skyblue;
+  margin: 1vh;
+  width: 14vw;
+  height: 5vh;
+
 }
